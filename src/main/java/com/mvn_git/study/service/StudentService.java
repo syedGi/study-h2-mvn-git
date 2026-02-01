@@ -28,7 +28,7 @@ public class StudentService {
 	public void caalingCustomQuery() {
 		Pageable pg = null;
 		Timestamp ts = null;
-		studentRepository.findTheQueryGiven(ts, pg);
+//		studentRepository.findTheQueryGiven(ts, pg);
 	}
 
 }

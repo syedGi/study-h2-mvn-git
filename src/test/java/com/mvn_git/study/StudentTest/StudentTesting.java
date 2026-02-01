@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.mvn_git.study.controller.StudentController;
 
 @SpringBootTest
-@ExtendWith
+//@ExtendWith
 public class StudentTesting {
 	
 	//@Autowired
