@@ -2,6 +2,8 @@ package com.mvn_git.study.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mvn_git.study.model.ProductDetails;
@@ -19,6 +21,12 @@ public class ProductService {
 	public List<ProductDetails> getFullProducts() {
 		List<ProductDetails> pds = productRepository.findAll();
 		return pds;
+	}
+
+	public Page<ProductDetails> getPgProd(Pageable pg) {
+		Page<ProductDetails> prodPages = productRepository
+					.findAll(pg);
+		return prodPages;
 	}
 
 	

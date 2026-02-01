@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +32,12 @@ public class ProductController {
 		List<ProductDetails>pdList = productService.getFullProducts();
 		log.info("=>GET ALL PRODUCT DETAILS DONE<=::", pdList);
 		return ResponseEntity.ok().body(pdList);
+	}
+	
+	@GetMapping("/pages")
+	public ResponseEntity<Page<ProductDetails>> getProPage(Pageable pg){
+		Page<ProductDetails> pgPro = productService.getPgProd(pg);
+		return ResponseEntity.ok().body(pgPro);
 	}
 	
 }
