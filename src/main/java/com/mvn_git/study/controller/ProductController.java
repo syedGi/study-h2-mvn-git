@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +38,7 @@ public class ProductController {
 	@GetMapping("/pages")
 	public ResponseEntity<Page<ProductDetails>> getProPage(Pageable pg){
 		Page<ProductDetails> pgPro = productService.getPgProd(pg);
+		Pageable pgb = PageRequest.of(1, 10);
 		return ResponseEntity.ok().body(pgPro);
 	}
 	
