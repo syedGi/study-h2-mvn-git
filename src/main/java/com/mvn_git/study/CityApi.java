@@ -45,5 +45,12 @@ public interface CityApi {
 			produces = MediaType.APPLICATION_JSON_VALUE
 			)
 	ResponseEntity<Page<CityProjection>> getCityNameProjPage(@RequestBody CityRequest cRequest);
-
+	
+	@PostMapping(
+			value = "/cityNameProjPageSort",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE
+			)
+	ResponseEntity<Page<CityProjection>> getCityNameProjPageSort(@RequestBody CityRequest cRequest);
+	
 }

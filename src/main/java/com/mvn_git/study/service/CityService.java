@@ -18,4 +18,6 @@ public interface CityService {
 	Page<City> getCityNamePage(CityRequest cRequest);
 	
 	Page<CityProjection> getCityNameProjPage(CityRequest proRequest);
+	
+	Page<CityProjection> getCityNameProjPageSort(CityRequest sortRequest);
 }

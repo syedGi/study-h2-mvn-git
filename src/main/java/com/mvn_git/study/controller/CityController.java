@@ -3,6 +3,7 @@ package com.mvn_git.study.controller;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +45,12 @@ public class CityController implements CityApi{
 	@Override
 	public ResponseEntity<Page<CityProjection>> getCityNameProjPage(CityRequest cRequest) {
 		return ResponseEntity.ok(cityService.getCityNameProjPage(cRequest));
+	}
+
+	@Override
+	public ResponseEntity<Page<CityProjection>> getCityNameProjPageSort(CityRequest cRequest) {
+		
+		return ResponseEntity.ok(cityService.getCityNameProjPageSort(cRequest));
 	}
 
 }

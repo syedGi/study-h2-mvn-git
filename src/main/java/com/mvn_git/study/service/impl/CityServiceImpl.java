@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mvn_git.study.model.City;
@@ -52,6 +53,15 @@ public class CityServiceImpl implements CityService{
 		Page<CityProjection> cityProjPage = cityRepository.getCityProjectioonPage(pageable);
 		log.info("City-Proj-Page::{}",cityProjPage);
 		return cityProjPage;
+	}
+
+	@Override
+	public Page<CityProjection> getCityNameProjPageSort(CityRequest sortRequest) {
+		Sort sortBy = Sort.by(sortRequest.getSortBy(), sortRequest.getSortDirection());
+		Pageable pageable = PageRequest.of(sortRequest.getPageNumber(), sortRequest.getPageSize(), sortBy);
+		Page<CityProjection> cityProjSort = cityRepository.getCityProjectioonPage(pageable);
+		log.info("City-Proj-Sort::{}",cityProjSort);
+		return null;
 	}
 
 }
